@@ -67,7 +67,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/logo/
-    -assets/rive/
+    - assets/rive/
     # otras rutas de assets...
 
 
