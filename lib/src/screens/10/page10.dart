@@ -1,212 +1,114 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:flutter_svg/svg.dart';
+
+import 'package:appscom/src/res/components/course.dart';
+import 'package:appscom/src/screens/home/components/course_card.dart'; 
+
 class Page10 extends StatelessWidget {
   const Page10({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: CircleAvatar(
-              radius: 20.r,
-              backgroundColor: const Color(0xFFC4C4C4),
-              foregroundColor: Colors.black,
-              child: Icon(
-                Icons.person,
-                size: 24.w,
-              ),
-            ),
-          ),
-        ],
-      ),
-      body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 12.w),
-        children: [
-          SizedBox(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Hey, Oscar',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontFamily: 'Work Sans',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                3.verticalSpace,
-                const Text(
-                  'Where to next?',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontFamily: 'Work Sans',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          32.verticalSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+      body: SafeArea(
+        bottom: false,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: 60,
-                height: 60,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFC4C4C4),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  "Courses",
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                      color: Colors.black, fontWeight: FontWeight.w600),
                 ),
               ),
-              60.horizontalSpace,
-              Container(
-                width: 60,
-                height: 60,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFC4C4C4),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    ...courses
+                        .map((course) => Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: CourseCard(course: course),
+                            ))
+                        .toList(),
+                  ],
                 ),
               ),
-              60.horizontalSpace,
-              Container(
-                width: 60,
-                height: 60,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFC4C4C4),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  "Recent",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall!
+                      .copyWith(fontWeight: FontWeight.w600),
+                ),
+              ),
+              ...recentCourses.map(
+                (course) => Padding(
+                  padding:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  child: SecondaryCourseCard(course: course),
                 ),
               ),
             ],
           ),
-          37.verticalSpace,
-          TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide.none,
-                gapPadding: 7,
-              ),
-              prefixIcon: const Icon(Icons.search),
-              suffixIcon: const Icon(Icons.mic),
-              fillColor: const Color(0x1E767680),
-              filled: true,
-              hintText: "Search",
-              hintStyle: const TextStyle(
-                color: Color(0x993C3C43),
-                fontSize: 17,
-                fontFamily: 'SF Pro Text',
-                fontWeight: FontWeight.w400,
-                letterSpacing: -0.41,
-              ),
-              contentPadding: const EdgeInsets.symmetric(
-                vertical: 7.0,
-              ),
-            ),
-          ),
-          32.verticalSpace,
-          SizedBox(
+        ),
+      ),
+    );
+  }
+}
+
+class SecondaryCourseCard extends StatelessWidget {
+  const SecondaryCourseCard({
+    Key? key,
+    required this.course,
+  }) : super(key: key);
+
+  final Course course;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+      decoration: BoxDecoration(
+        color: course.bgColor,
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
+      child: Row(
+        children: [
+          Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Explore from Seattle',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontFamily: 'Work Sans',
-                    fontWeight: FontWeight.w600,
-                  ),
+                Text(
+                  course.title,
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
-                2.verticalSpace,
-                const Text(
-                  'See the world on your budget',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontFamily: 'Work Sans',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
+                Text(
+                  "Watch video - 15 mins",
+                  style: TextStyle(color: Colors.white60, fontSize: 16),
+                )
               ],
             ),
           ),
-          16.verticalSpace,
-          Container(
-            height: 320.h,
-            decoration: ShapeDecoration(
-              color: const Color(0xFFC4C4C4),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-            ),
-            alignment: Alignment.bottomCenter,
-            padding: EdgeInsets.symmetric(horizontal: 33.w, vertical: 24.h),
-            child: Container(
-              width: double.infinity,
-              height: 38.h,
-              padding: const EdgeInsets.all(8),
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-              ),
-              alignment: Alignment.center,
-              child: const Text(
-                'Buy now',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color(0xFF262626),
-                  fontSize: 14,
-                  fontFamily: 'Work Sans',
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ),
-          26.verticalSpace,
           SizedBox(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Get inspired',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontFamily: 'Work Sans',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                2.verticalSpace,
-                const Text(
-                  'You think about your own copywriting :)) haha',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontFamily: 'Work Sans',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
+            height: 40,
+            child: VerticalDivider(
+              color: Colors.white70,
             ),
           ),
+          SizedBox(width: 8),
+          SvgPicture.asset(course.iconSrc)
         ],
       ),
-      drawer: const Drawer(),
     );
   }
 }
