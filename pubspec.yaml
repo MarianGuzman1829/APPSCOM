@@ -68,6 +68,7 @@ flutter:
   assets:
     - assets/logo/
     - assets/rive/
+    - assets/icons/
     # otras rutas de assets...
 
 
@@ -152,6 +153,16 @@ flutter:
       fonts:
         - asset: assets/fonts/Proxima-Nova.otf
 
+    - family: Intel
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+    
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
 
   # To add assets to your application, add an assets section, like this:
   # assets:

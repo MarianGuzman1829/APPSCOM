@@ -9,7 +9,7 @@ import 'package:appscom/src/res/components/menu.dart';
 import 'components/btm_nav_item.dart';
 import 'components/menu_btn.dart';
 import 'components/side_bar.dart';
-
+/*
 class EntryPoint extends StatefulWidget {
   const EntryPoint({super.key});
 
@@ -177,4 +177,4 @@ class _EntryPointState extends State<EntryPoint>
       ),
     );
   }
-}
+}*/
