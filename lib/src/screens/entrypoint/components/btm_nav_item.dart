@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
-import '../../../model/menu.dart';
+import 'package:appscom/src/res/components/menu.dart';
 import 'animated_bar.dart';
 
 class BtmNavItem extends StatelessWidget {
