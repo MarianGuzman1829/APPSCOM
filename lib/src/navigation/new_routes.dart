@@ -30,7 +30,7 @@ var goRouter = GoRouter(
     GoRoute(
       path: MobileRoutes.home,
       builder: (BuildContext context, GoRouterState state) =>
-          const MobileHomePage(),
+          const HomePage(),
       routes: <GoRoute>[
         /// Mobile 1 - 20
         GoRoute(
