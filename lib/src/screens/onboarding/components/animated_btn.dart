@@ -22,11 +22,7 @@ class AnimatedBtn extends StatelessWidget {
         width: 260,
         child: Stack(
           children: [
-            // Just a button no animation
-            // Let's fix that
-            RiveAnimation.asset(
-              "assets/rive/button.riv",
-              // Once we restart the app it shows the animation
+            RiveAnimation.asset("assets/rive/shark_button.riv",
               controllers: [_btnAnimationColtroller],
             ),
             Positioned.fill(
@@ -35,10 +31,10 @@ class AnimatedBtn extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Icon(CupertinoIcons.arrow_right),
-                  SizedBox(width: 8),
+                  //Icon(CupertinoIcons.arrow_right),
+                  //SizedBox(width: 8),
                   Text(
-                    "Ingresar a la app",
+                    "",
                     style: TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ],

@@ -21,8 +21,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     _btnAnimationColtroller = rive.OneShotAnimation(
       "active",
       autoplay: false,
-      // Let's restart the app again
-      // No amination
     );
     super.initState();
   }
@@ -31,12 +29,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        fit: StackFit.expand,
         children: [
-          // At the end of the video i will show you
-          // How to create that animation on Rive
-          // Let's add blur
           Positioned(
-            // height: 100,
+            //height: 100,
             width: MediaQuery.of(context).size.width * 1.7,
             bottom: 50,
             left: 10,
@@ -44,27 +40,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           Positioned.fill(
             child: BackdropFilter(
-              // Now it's looks perfect
-              // See how easy
               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
             ),
           ),
-          const rive.RiveAnimation.asset("assets/rive/shapes.riv"),
           Positioned.fill(
             child: BackdropFilter(
-              // Now it's looks perfect
-              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
               child: const SizedBox(),
             ),
           ),
-          // Let's add text
+          // En esta parte se agrega el texto de bienvenida
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Spacer(flex: 2),
+                  const Spacer(flex: 3),
                   SizedBox(
                     width: 250,
                     child: Column(
@@ -78,7 +70,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             height: 1.2,
                           ),
                         ),
-                        SizedBox(height: 1),
+                        SizedBox(height: 16),
                         Text(
                           "Bienvenido a la mejor escuela de computo de México, donde podrás aprender de los mejores profesionales en el área de la computación.",
                         style: TextStyle(
@@ -96,10 +88,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       _btnAnimationColtroller.isActive = true;
                     },
                   ),
+                 // const Spacer(flex: 1),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24),
+                  child: Text(
+                    "App creada por @Atl1God",
+                  ),
+                  ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 24),
                     child: Text(
-                      "App creada por @Atl1God",
+                      "",
                     ),
                   ),
                 ],
