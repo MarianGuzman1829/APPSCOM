@@ -1,14 +1,11 @@
 import 'dart:ui';
 
-import 'package:appscom/main.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart' as rive;
 import 'package:animate_do/animate_do.dart';
-
-import 'components/animated_btn.dart';
-
 import 'package:avatar_glow/avatar_glow.dart';
+
+
+
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -17,17 +14,6 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  //late rive.RiveAnimationController _btnAnimationColtroller;
-
-  /*@override
-  void initState() {
-    _btnAnimationColtroller = rive.OneShotAnimation(
-      "active",
-      autoplay: false,
-    );
-    super.initState();
-  }
-*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +38,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: const SizedBox(),
             ),
           ),
+
           // En esta parte se agrega el texto de bienvenida
           SafeArea(
             child: Padding(
@@ -64,23 +51,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   SizedBox(
                     width: 250,
                     child: Column(
-                      children: const [
-                        Text(
+                      children: [
+                        FadeIn(
+                          delay:const Duration(seconds: 2),
+                          duration :const Duration(seconds: 6),
+                        child: const Text(
                           "BIENVENIDO",
                           style: TextStyle(
                             color: Color.fromARGB(255, 1, 60, 107),
                             fontSize: 40,
                             fontFamily: "Poppins",
                             height: 1.2,
-                          ),
+                              ),
+                            ),
                         ),
                         SizedBox(height: 16),
-                        Text(
+                        FadeIn(
+                            delay: const Duration(seconds: 3),       
+                            duration: const Duration(seconds: 6), 
+                        child:const Text(
                           "Bienvenido a la mejor escuela de computo de México, donde podrás aprender de los mejores profesionales en el área de la computación.",
                         style: TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0),
                           fontSize: 16,
-                        ),
+                              ),
+                            ),
                         ),
                       ],
                     ),
@@ -89,8 +84,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   Align(
                     alignment: FractionalOffset(0.2, 0),
                   child:FadeIn(
-                     delay:const Duration(seconds: 2),
-                     duration :const Duration(seconds: 10),
+                     delay:const Duration(seconds: 5),
+                     duration :const Duration(seconds: 6),
                      child: GestureDetector(
                       onTap:(){
                       },
@@ -113,8 +108,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                  SizedBox(height: 55),
                  FadeIn(
-                     delay:const Duration(milliseconds: 2000),
-                     duration :const Duration(seconds: 10),
+                     delay:const Duration(seconds: 6),
+                     duration :const Duration(seconds: 6),
                      child: Text(
                       "Presiona para continuar",
                       style: TextStyle(
@@ -123,18 +118,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                      ),
                   ),
-                 /*
-                 AnimatedBtn(
-                    btnAnimationColtroller: _btnAnimationColtroller,
-                    press: () {
-                      _btnAnimationColtroller.isActive = true;
-                    },
-                  ),*/
                   SizedBox(height: 75), 
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 24),
                   child: Text(
-                    "App creada por @Atl1God",
+                    "App creada por @Atl1God, @Marielly",
                   ),
                   ),
                 ],
