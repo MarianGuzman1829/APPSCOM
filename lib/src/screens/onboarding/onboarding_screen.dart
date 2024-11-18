@@ -1,11 +1,14 @@
 import 'dart:ui';
 
+import 'package:appscom/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart' as rive;
+import 'package:animate_do/animate_do.dart';
 
 import 'components/animated_btn.dart';
 
+import 'package:avatar_glow/avatar_glow.dart';
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -14,9 +17,9 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  late rive.RiveAnimationController _btnAnimationColtroller;
+  //late rive.RiveAnimationController _btnAnimationColtroller;
 
-  @override
+  /*@override
   void initState() {
     _btnAnimationColtroller = rive.OneShotAnimation(
       "active",
@@ -24,7 +27,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
     super.initState();
   }
-
+*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +59,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Spacer(flex: 3),
+                  SizedBox(height: 215), 
+                  SizedBox(width: 50), 
                   SizedBox(
                     width: 250,
                     child: Column(
@@ -81,25 +85,57 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ],
                     ),
                   ),
-                  const Spacer(flex: 2),
-                  AnimatedBtn(
+                  SizedBox(height: 60),  
+                  Align(
+                    alignment: FractionalOffset(0.2, 0),
+                  child:FadeIn(
+                     delay:const Duration(seconds: 2),
+                     duration :const Duration(seconds: 10),
+                     child: GestureDetector(
+                      onTap:(){
+                      },
+                    child: AvatarGlow(
+                      glowRadiusFactor: .5,
+                      glowColor: Colors.blue,
+                      startDelay: const Duration(seconds: 3),
+                      animate: true,
+                      glowCount: 2,
+                      duration: const Duration(seconds: 3),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 40,
+                        child: Image.asset("assets/png/logoshark.png",
+                        height: 200),
+                      ),
+                    ),
+                  ),
+                 ),
+                ),
+                 SizedBox(height: 55),
+                 FadeIn(
+                     delay:const Duration(milliseconds: 2000),
+                     duration :const Duration(seconds: 10),
+                     child: Text(
+                      "Presiona para continuar",
+                      style: TextStyle(
+                        color: Color.fromARGB(150, 4, 94, 168),
+                        fontSize: 20,
+                      ),
+                     ),
+                  ),
+                 /*
+                 AnimatedBtn(
                     btnAnimationColtroller: _btnAnimationColtroller,
                     press: () {
                       _btnAnimationColtroller.isActive = true;
                     },
-                  ),
-                 // const Spacer(flex: 1),
+                  ),*/
+                  SizedBox(height: 75), 
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 24),
                   child: Text(
                     "App creada por @Atl1God",
                   ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24),
-                    child: Text(
-                      "",
-                    ),
                   ),
                 ],
               ),

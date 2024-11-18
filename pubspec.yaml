@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  avatar_glow: ^3.0.1
+  animate_do: ^3.3.4
   rive: ^0.13.17
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3

@@ -22,11 +22,10 @@ class AnimatedBtn extends StatelessWidget {
         width: 260,
         child: Stack(
           children: [
-            RiveAnimation.asset("assets/rive/shark_button.riv",
+            RiveAnimation.asset("assets/rive/button.riv",
               controllers: [_btnAnimationColtroller],
             ),
             Positioned.fill(
-              // But it's not center
               top: 8,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
