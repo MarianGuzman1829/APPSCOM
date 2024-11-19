@@ -2,8 +2,8 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:appscom/src/screens/onboarding/onboarding_screen.dart';
 import 'package:appscom/src/res/colors.dart';
+import 'package:appscom/src/screens/onboarding/screens_onboarding.dart';
 
 void main() {
   runApp(
@@ -41,7 +41,16 @@ class App extends StatelessWidget {
             errorBorder: defaultInputBorder,
           ),
         ),
-        home: const OnboardingScreen(), // Pantalla de bienvenida directamente
+        // Aquí se agregan las rutas de las pantallas de bienvenida
+        initialRoute: OnboardingScreen.name, // Ruta inicial
+        routes: {
+          OnboardingScreen.name               : (context) => const OnboardingScreen(),
+          Onboarding1Screen.routename              : (context) => const Onboarding1Screen(),
+          Onboarding2Screen.routename              : (context) => const Onboarding2Screen(),
+          Onboarding3Screen.routename              : (context) => const Onboarding3Screen(),
+          ContenedorOnboardingScreen.routename     : (context) => const ContenedorOnboardingScreen(),
+        },  
+        //home: const OnboardingScreen(), // Pantalla de bienvenida directamente
       ),
     );
   }

@@ -3,11 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:avatar_glow/avatar_glow.dart';
-
-
+import 'package:appscom/src/screens/onboarding/screens_onboarding.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+   static const name = "OnboardingScreen";
+   const OnboardingScreen({super.key});
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -46,8 +46,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 215), 
-                  SizedBox(width: 50), 
+                  const SizedBox(height: 215), 
+                  const SizedBox(width: 50), 
                   SizedBox(
                     width: 250,
                     child: Column(
@@ -65,7 +65,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                             ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         FadeIn(
                             delay: const Duration(seconds: 3),       
                             duration: const Duration(seconds: 6), 
@@ -80,7 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 60),  
+                  const SizedBox(height: 60),  
                   Align(
                     alignment: FractionalOffset(0.2, 0),
                   child:FadeIn(
@@ -88,6 +88,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                      duration :const Duration(seconds: 6),
                      child: GestureDetector(
                       onTap:(){
+                        Navigator.pushNamed(context, ContenedorOnboardingScreen.routename);
                       },
                     child: AvatarGlow(
                       glowRadiusFactor: .5,
