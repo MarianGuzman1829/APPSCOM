@@ -123,7 +123,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 24),
                   child: Text(
-                    "App creada por @Atl1God, @Marielly",
+                    "App creada por @Atl1God, @Marielly and @Dxniel76",
                   ),
                   ),
                 ],
