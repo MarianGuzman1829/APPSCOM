@@ -6,7 +6,7 @@ import 'package:appscom/src/res/colors.dart';
 import 'package:appscom/src/screens/onboarding/screens_onboarding.dart';
 import 'package:sizer/sizer.dart';
 
-void main() {
+void main() { 
   runApp(
     DevicePreview(
       enabled: !kReleaseMode, // Habilita DevicePreview en modo debug
