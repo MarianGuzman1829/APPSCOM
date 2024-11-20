@@ -20,7 +20,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(390, 844), // Diseño base (ej. iPhone 12)
+      designSize: const Size(390, 844), // Diseño base iPhone 12
       builder: (context, child) => MaterialApp(
         useInheritedMediaQuery: true, // Necesario para DevicePreview
         locale: DevicePreview.locale(context), // Soporte de idiomas

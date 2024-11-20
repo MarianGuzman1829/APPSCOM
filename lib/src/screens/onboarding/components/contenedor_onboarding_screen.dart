@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:appscom/src/screens/onboarding/screens_onboarding.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 
 class ContenedorOnboardingScreen extends StatefulWidget {
   static const String routename = 'ContenedorOnboarding';
@@ -41,45 +39,52 @@ class _ContenedorOnboardingScreenState
             // Controles de navegación
             Align(
               alignment: const Alignment(0, 0.85),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Botón "Saltar"
-                  TextButton(
-                    onPressed: () {
-                      _controller.jumpToPage(2); // Salta a la última página
-                    },
-                    child: const Text(
-                      'Saltar',
-                      style: TextStyle(color: Colors.blue),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Botón "Saltar"
+                    TextButton(
+                      onPressed: () {
+                        _controller.jumpToPage(2); // Salta a la última página
+                      },
+                      child: const Text(
+                        'Saltar',
+                        style: TextStyle(color: Colors.blue),
+                      ),
                     ),
-                  ),
-                  // Indicador de progreso
-                  SmoothPageIndicator(
-                    controller: _controller,
-                    count: 3,
-                    effect: const ExpandingDotsEffect(
-                      activeDotColor: Colors.blue,
+                    // Indicador de progreso
+                    SmoothPageIndicator(
+                      controller: _controller,
+                      count: 3,
+                      effect: const ExpandingDotsEffect(
+                        activeDotColor: Colors.blue,
+                        dotColor: Colors.grey,
+                        dotHeight: 8,
+                        dotWidth: 8,
+                        spacing: 8,
+                      ),
                     ),
-                  ),
-                  // Botón "Siguiente" o "Listo"
-                  TextButton(
-                    onPressed: () {
-                      if (ultimaPagina) {
-                        Navigator.pop(context); // Cierra el flujo
-                      } else {
-                        _controller.nextPage(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
-                        );
-                      }
-                    },
-                    child: Text(
-                      ultimaPagina ? 'Listo' : 'Siguiente',
-                      style: const TextStyle(color: Colors.blue),
+                    // Botón "Siguiente" o "Listo"
+                    TextButton(
+                      onPressed: () {
+                        if (ultimaPagina) {
+                          Navigator.pop(context); // Cierra el flujo
+                        } else {
+                          _controller.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
+                          );
+                        }
+                      },
+                      child: Text(
+                        ultimaPagina ? 'Listo' : 'Siguiente',
+                        style: const TextStyle(color: Colors.blue),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
