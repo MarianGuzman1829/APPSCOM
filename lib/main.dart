@@ -1,9 +1,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+//import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:appscom/src/res/colors.dart';
 import 'package:appscom/src/screens/onboarding/screens_onboarding.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   runApp(
@@ -19,9 +20,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(390, 844), // Diseño base iPhone 12
-      builder: (context, child) => MaterialApp(
+    //return ScreenUtilInit(
+      //designSize: const Size(390, 844), // Diseño base iPhone 12
+      /*builder: (context, child) =>*/
+      return Sizer(
+        builder: (context, orientation, devicetype) {      
+
+       return MaterialApp(
         useInheritedMediaQuery: true, // Necesario para DevicePreview
         locale: DevicePreview.locale(context), // Soporte de idiomas
         builder: DevicePreview.appBuilder, // Builder de DevicePreview
@@ -51,10 +56,13 @@ class App extends StatelessWidget {
           ContenedorOnboardingScreen.routename     : (context) => const ContenedorOnboardingScreen(),
         },  
         //home: const OnboardingScreen(), // Pantalla de bienvenida directamente
-      ),
-    );
+      );
+    //);
+      },
+      );
   }
 }
+
 
 const defaultInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(16)),

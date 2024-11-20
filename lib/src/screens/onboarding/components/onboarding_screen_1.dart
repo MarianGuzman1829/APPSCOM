@@ -10,7 +10,7 @@ class Onboarding1Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String assetName = 'assets/svg/undraw1.svg';
+    const String assetName = 'assets/svg/onboarding/undraw1.svg';
     final Widget svg = SvgPicture.asset(
       assetName,
       semanticsLabel: 'A shark appears',
@@ -24,8 +24,8 @@ class Onboarding1Screen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: 20.h,
-                width: 20.w,
+                height: 70.h,
+                width: 70.w,
                 child: svg,
               ),
               Padding(

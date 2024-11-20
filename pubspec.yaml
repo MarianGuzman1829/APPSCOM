@@ -107,6 +107,7 @@ flutter:
 
     # SVGs
     - assets/svg/
+    - assets/svg/onboarding/
     - assets/svg/m3/
     - assets/svg/m4/
     - assets/svg/m6/
